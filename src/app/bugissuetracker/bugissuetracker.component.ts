@@ -10,7 +10,7 @@ export class BugissuetrackerComponent implements OnInit {
 
  
   selected= {
-    name: 'Done',
+    name: 'done',
     color: 'green'
   }
 
@@ -25,7 +25,7 @@ export class BugissuetrackerComponent implements OnInit {
     color: 'blue'
   }]
   // onChange(value){
-  //   this.selected = value;
+  //   this.selectedColor = value;
   // }
   compareObjects(o1: any, o2: any): boolean {
     return o1.color === o2.color

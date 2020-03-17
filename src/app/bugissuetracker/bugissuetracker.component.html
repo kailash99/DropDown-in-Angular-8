@@ -1,0 +1,73 @@
+<p>bugissuetracker works!</p>
+ <div id="app">
+         <div class="container">
+            <div class="header">
+               <div class="box-input box-component">
+                  <div class="MuiInputBase-root MuiInput-root MuiInput-underline Mui-disabled Mui-disabled" label="Outlined" variant="outlined"><input id="outlined-basic" placeholder="Title" type="text" class="MuiInputBase-input MuiInput-input Mui-disabled Mui-disabled" value="Issue Tracker for BugApp" disabled=""></div>
+               </div>
+               <div class="box-button box-component"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary" tabindex="0" type="button"><span class="MuiButton-label"><b>Edit</b></span><span class="MuiTouchRipple-root"></span></button></div>
+            </div>
+            <div>
+               <table id="projects">
+                  <tbody>
+                     <tr>
+                        <th>ID</th>
+                        <th>DESCRIPTION</th>
+                        <th>STATUS</th>
+                     </tr>
+                     <tr class="done" [ngStyle]="{'background-color': selected.color}">
+                        <td>1</td>
+                        <td>Create login page</td>
+                        <td>
+                                <select [(ngModel)]="selected" [compareWith]="compareObjects"
+                                        [ngStyle]="{'background-color': selected.color}">{{selected.name}}
+                                    <option *ngFor="let datas of data" [ngStyle]="{'background-color': datas.color}" [ngValue]="datas">{{datas.name}}</option>
+                                </select>                               
+                        </td>
+                     </tr>
+                     <tr class="done" [ngStyle]="{'background-color': selected.color}">
+                        <td>2</td>
+                        <td>Create registration page</td>
+                        <td>
+                            <select [(ngModel)]="selected" [compareWith]="compareObjects"
+                                        [ngStyle]="{'background-color': selected.color}">{{selected.name}}
+                                    <option *ngFor="let datas of data" [ngStyle]="{'background-color': datas.color}" [ngValue]="datas">{{datas.name}}</option>
+                            </select>  
+                        </td>
+                     </tr>
+                     <tr class="done"[ngStyle]="{'background-color': selected.color}">
+                        <td>3</td>
+                        <td>Integrate OTP API with registration page</td>
+                        <td>
+                            <select [(ngModel)]="selected" [compareWith]="compareObjects"
+                                        [ngStyle]="{'background-color': selected.color}">{{selected.name}}
+                                    <option *ngFor="let datas of data" [ngStyle]="{'background-color': datas.color}" [ngValue]="datas">{{datas.name}}</option>
+                            </select> 
+                        </td>
+                     </tr>
+                     <tr class="done" [ngStyle]="{'background-color': selected.color}">
+                        <td>4</td>
+                        <td>Create dashboard with side navigation</td>
+                        <td>
+                            <select [(ngModel)]="selected" [compareWith]="compareObjects"
+                                        [ngStyle]="{'background-color': selected.color}">{{selected.name}}
+                                    <option *ngFor="let datas of data" [ngStyle]="{'background-color': datas.color}" [ngValue]="datas">{{datas.name}}</option>
+                            </select> 
+                        </td>
+                     </tr>
+                     <tr class="done" [ngStyle]="{'background-color': selected.color}">
+                        <td>5</td>
+                        <td>Design database model for User model</td>
+                        <td>
+                           <select [(ngModel)]="selected" [compareWith]="compareObjects"
+                                        [ngStyle]="{'background-color': selected.color}">{{selected.name}}
+                                    <option *ngFor="let datas of data" [ngStyle]="{'background-color': datas.color}" [ngValue]="datas">{{datas.name}}</option>
+                            </select> 
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+     

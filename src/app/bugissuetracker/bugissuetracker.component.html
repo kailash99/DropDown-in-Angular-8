@@ -1,12 +1,47 @@
-<p>bugissuetracker works!</p>
- <div id="app">
-         <div class="container">
+<div>
+        <input  type="text" value="edit text" [disabled]='textBoxClick' />
+        <button  class="btn btn2" [ngClass]="{'btn-edit': !clicked, 'btn-done': clicked}" (click)="textBoxClick = !textBoxClick">
+            {{textBoxClick ? 'Edit' : 'Done'}}</button>
+            <br>
+
+    <table id="dropdownApp">
+        <tr>
+            <th *ngFor = "let column of headers">{{column}}
+            </th>
+            <th>Status</th>
+        </tr>
+        
+        <tr *ngFor = "let row of rows" [ngStyle]="{'background-color': selectedColor}" >
+            <td *ngFor = "let column of headers">
+                <div >
+                    {{row[column]}}
+                </div>  
+            </td>
+            <select (change)="onChange($event.target.value)" >
+                    <option *ngFor="let statuso of status; let i = index;" [value]="statuso.value"  >
+                        {{statuso.name}}
+                    </option>
+            </select>  
+        </tr>      
+    </table>
+</div>
+<!-- <div ng-controller="ExampleController">
+        <div class="container">
+            <select ng-model="BgrclassName" 
+            ng-options="bgrArr.className as bgrArr.className for bgrArr in bgrArrs"></select><br/>
+            <h2 ng-class="[TxtclassName , BgrclassName]">Class Applying on me.</h2>
+        </div>
+    </div> -->
+<!-- <div id="app">
+    <div class="container">
             <div class="header">
                <div class="box-input box-component">
-                  <div class="MuiInputBase-root MuiInput-root MuiInput-underline Mui-disabled Mui-disabled" label="Outlined" variant="outlined"><input id="outlined-basic" placeholder="Title" type="text" class="MuiInputBase-input MuiInput-input Mui-disabled Mui-disabled" value="Issue Tracker for BugApp" disabled=""></div>
+                  <div class="MuiInputBase-root MuiInput-root MuiInput-underline Mui-disabled Mui-disabled" label="Outlined" variant="outlined"><input id="outlined-basic" placeholder="Title" type="text" class="MuiInputBase-input MuiInput-input Mui-disabled Mui-disabled" value="Issue Tracker for BugApp"></div>
                </div>
-               <div class="box-button box-component"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary" tabindex="0" type="button"><span class="MuiButton-label"><b>Edit</b></span><span class="MuiTouchRipple-root"></span></button></div>
+               <div class="box-button box-component"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary" tabindex="0" type="button"><span class="MuiButton-label"><b>Edit</b></span><span class="MuiTouchRipple-root"></span></button>
+               <button class="btn btn-primary" (click)="editProject(employee.id)" style="margin-right: 5%;">Edit</button>
             </div>
+    </div>
             <div>
                <table id="projects">
                   <tbody>
@@ -15,24 +50,35 @@
                         <th>DESCRIPTION</th>
                         <th>STATUS</th>
                      </tr>
-                     <tr class="done" [ngStyle]="{'background-color': selected.color}">
+                     <tr class="done">
                         <td>1</td>
                         <td>Create login page</td>
                         <td>
-                                <select [(ngModel)]="selected" [compareWith]="compareObjects"
+                            <select class="form-control" name="value" id="cName{{item.cName}}"
+                                    [ngStyle]="{'background-color': selected.color}" 
+                                    [(ngModel)]="selected.value[item.cName]" (ngModelChange)="onChangeSelectedDetails($event,item.cName)">
+                                <option value="0">Select</option>
+                                <option value="1" *ngFor="let colors of color" [ngStyle]="{'background-color': colors.cName}" >Done</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Not Started</option>
+                            </select>
+                                <!--<select [(ngModel)]="selected" [compareWith]="compareObjects"
                                         [ngStyle]="{'background-color': selected.color}">{{selected.name}}
                                     <option *ngFor="let datas of data" [ngStyle]="{'background-color': datas.color}" [ngValue]="datas">{{datas.name}}</option>
-                                </select>                               
+                                </select>                             
                         </td>
                      </tr>
-                     <tr class="done" [ngStyle]="{'background-color': selected.color}">
+                     <tr class="done">
                         <td>2</td>
                         <td>Create registration page</td>
                         <td>
-                            <select [(ngModel)]="selected" [compareWith]="compareObjects"
-                                        [ngStyle]="{'background-color': selected.color}">{{selected.name}}
-                                    <option *ngFor="let datas of data" [ngStyle]="{'background-color': datas.color}" [ngValue]="datas">{{datas.name}}</option>
-                            </select>  
+                            <select class="form-control" name="value" id="cNameO{{item.cName}}" [ngStyle]="{'background-color': selected.color}" 
+                                    [(ngModel)]="selected.value[item.color]" (ngModelChange)="onChangeSelectedDetails($event,item.cName)">
+                                <option value="0">Select</option>
+                                <option value="1">Done</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Not Started</option>
+                            </select> 
                         </td>
                      </tr>
                      <tr class="done"[ngStyle]="{'background-color': selected.color}">
@@ -70,4 +116,4 @@
             </div>
          </div>
       </div>
-     
+     -->
